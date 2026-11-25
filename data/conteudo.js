@@ -2,7 +2,7 @@
    Datas no formato AAAA-MM-DD. Use null quando não houver prazo fixo.
    Não publique dados pessoais, certificados ou notas. */
 const PORTAL = {
-  revisao: '2026-11-24',
+  revisao: '2026-11-25',
   metaHoras: 160,
   cursos: [
     // As ofertas abaixo usam o catálogo e a notícia institucional de 2026.2.
@@ -30,6 +30,7 @@ const PORTAL = {
     {id:'godot',titulo:'Documentação Godot',instituicao:'Godot Engine',area:'Desenvolvimento de jogos',tipo:'plataforma',horas:null,certificado:'consultar',descricao:'Material gratuito para estudo autônomo de motores de jogos. Não é um curso certificado.',url:'https://docs.godotengine.org/pt-br/stable/',fonte:'https://docs.godotengine.org/pt-br/stable/'}
   ],
   avisos:[
+    {tipo:"VISITA TÉCNICA",titulo:"IFMS Dourados no Pantanal Game Show 2026",descricao:"21 estudantes participam do evento em Campo Grande nos dias 25 e 26 de novembro.",prazo:"2026-11-26",url:"noticias.html#pantanal",rotulo:"Ler notícia"},
     {tipo:'CURSOS LIVRES',titulo:'Inscrições IFMS · 2026.2',descricao:'Inscrições até 5 de dezembro e conclusão até 17 de dezembro de 2026. Confira os cursos e as condições na notícia institucional.',prazo:'2026-12-05',url:'https://www.ifms.edu.br/noticias/2026/confira-lista-de-cursos-livres-disponiveis/',rotulo:'Ver comunicado'},
     {tipo:'ORIENTAÇÃO',titulo:'Organize suas atividades complementares',descricao:'Reserve parte dos períodos disponíveis para participar de atividades formativas e guardar os comprovantes. Confira os critérios do PPC antes de solicitar aproveitamento.',prazo:null,url:'#formacao',rotulo:'Ver orientações'}
   ]

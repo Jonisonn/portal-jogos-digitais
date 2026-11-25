@@ -1,39 +1,35 @@
-# Jogos Digitais | Portal Acadêmico
+# Jogos Digitais — IFMS Campus Dourados · V5
 
-Protótipo funcional v1.0 — IFMS Campus Dourados. Site estático, sem servidor, sem dependências externas e sem coleta de dados. Não representa publicação ou aprovação institucional.
+Portal estático de graduação, preparado para GitHub Pages. Não exige instalação de dependências, banco de dados nem servidor de aplicação.
 
-## Testar localmente
+## Publicação
+1. Extraia o ZIP e envie seu conteúdo (inclusive `.nojekyll`) à raiz de um repositório público.
+2. No GitHub, abra Settings → Pages → Deploy from a branch → main → /(root) → Save.
+3. Confira todas as páginas no endereço fornecido pelo GitHub, especialmente o organizador e seus downloads. Não publique dados pessoais de estudantes no repositório.
 
-Extraia todos os arquivos e abra `index.html` no navegador. Para comportamento de armazenamento mais previsível, use VS Code + Live Server ou `python -m http.server 8000` e acesse `http://localhost:8000`.
+## Páginas
+- `index.html`: apresentação, notícia de destaque, atalhos, formação e portfólio.
+- `curso.html`: graduação e matriz curricular.
+- `projetos.html`: jogos e GameLab, sem as fotos antigas do laboratório.
+- `noticias.html`: registro da visita técnica ao Pantanal Game Show (texto e foto fornecidos pela coordenação; confirmar autorização de divulgação antes de publicar).
+- `estudante.html`: avisos, regras de atividades complementares, cursos e documentos.
+- `atividades.html`: registro pessoal, estimativa de pontos, ficha Word e backup.
+- `links.html`: central de acessos; os demais links semestrais e canais estão na Linktree existente.
 
-## Publicar no GitHub Pages
+## Atualização
+Edite `data/conteudo.js` para cursos e avisos, com prazos no formato AAAA-MM-DD. Ofertas e avisos vencidos deixam de aparecer por padrão. Notícias permanentes são publicadas em `noticias.html`; para trocar o destaque, edite a seção `.v5-feature` de `index.html`. Use imagens próprias autorizadas em `assets/img/`, com texto alternativo. Não distribua fontes comerciais sem licença.
 
-1. Crie um repositório público chamado `portal-jogos-digitais` (preferencialmente em uma organização vinculada ao curso, com autorização institucional).
-2. Envie **o conteúdo** desta pasta, não a pasta externa. `index.html`, `assets/`, `data/` e `.nojekyll` devem ficar na raiz.
-3. Em Settings → Pages → Build and deployment, escolha Deploy from a branch, branch `main`, pasta `/(root)` e Save.
-4. O GitHub exibirá a URL publicada; o padrão é `https://USUARIO.github.io/portal-jogos-digitais/`.
-5. Confirme se o site funciona no celular, se os links institucionais estão corretos e se a identidade está autorizada, antes de divulgar.
+## Organizador de atividades
+A lógica em `assets/atividades.js` implementa os 20 itens do Anexo I do ROD (Resolução Cosup/IFMS nº 15, de 12/02/2026) e os dois itens específicos do PPC (3.7 e 3.8, seção 5.5). Meta: 160 pontos/horas. Tetos: item/semestre, categoria/semestre e categoria/curso. O cálculo distribui pontos cronologicamente por semestre, data final e ordem de registro. Não limita o total geral a 160: mostra todo o aproveitamento estimado e o restante até a meta. Atividades anteriores à data de ingresso ficam fora da estimativa (transferência/reingresso exigem análise). O estudante informa meses completos ou participações comprovados. A interpretação de 4.5 é 5 pontos por publicação. Semestres sugeridos por data final civil, com edição manual conforme calendário. Para atividades que atravessam semestres, o estudante deve lançar parcelas comprovadas distintas sem duplicação. Não há validação oficial nem integração com SUAP. A ficha .docx é uma reprodução editável dos campos do Anexo II, não uma cópia gráfica idêntica: carga conferida, situação, carga total oficial e assinaturas ficam em branco; o demonstrativo auxiliar contém pontos estimados e limites. O PDF original segue disponível.
 
-Documentação: https://docs.github.com/en/pages/getting-started-with-github-pages/quickstart
+Dados pessoais e atividades são armazenados apenas no navegador (chave `jd-dourados-atividades-v5`). O backup JSON pode conter dados pessoais: guarde-o com segurança. Não use computadores compartilhados sem limpar os dados ao terminar. Registros V1 são disponibilizados para exportação separada, pois não têm datas e categorias suficientes para migração automática. Ao usar arquivo local, o comportamento do armazenamento depende do navegador; recomenda-se testar no GitHub Pages.
 
-## Atualizar os conteúdos
+## Referências
+- PPC dezembro/2025, seção 5.5 — `documentos/ppc-2025.pdf`.
+- ROD, Resolução Cosup/IFMS nº 15/2026 — `documentos/rod-2026.pdf`, arts. 100–108, Anexo I e II.
+- ROD institucional: https://www.ifms.edu.br/centrais-de-conteudo/documentos-institucionais/regulamentos/regulamento-da-organizacao-didatico-pedagogica-2025
+- Manual de identidade visual Jogos Digitais (2020): roxo #7459DC, #3C2F8C, cinza #494949, preto #1D1D1A e branco. Marca original vetorial. Fontes de sistema na interface por ausência dos arquivos de fontes licenciados para web.
+- Referências de organização de conteúdo: PUC-SP (https://www.pucsp.br/graduacao/jogos-digitais), Centro Universitário Senac (https://www.sp.senac.br/graduacao/bacharelado-em-jogos-digitais), DigiPen (https://www.digipen.edu/academics/game-design-and-development-degrees/ba-in-game-design), NYU Game Center (https://gamecenter.nyu.edu/academics/game-design-bfa/). Inspiração na apresentação da formação, projetos, produção estudantil e comunidade, sem copiar seus layouts.
 
-- `data/conteudo.js`: cursos, plataformas, avisos e data de revisão. O arquivo é JavaScript com objetos de dados, para permitir abrir o site localmente sem servidor HTTP. Mantenha os identificadores únicos e a estrutura dos registros. Não use datas fictícias. Use `prazo: null` para conteúdo permanente; datas AAAA-MM-DD expiram após o fim daquele dia no horário de Campo Grande. As ofertas encerradas podem ser consultadas pelo filtro; avisos vencidos deixam de aparecer.
-- `index.html`: textos, seções, links fixos, FAQ e rodapé.
-- `assets/style.css`: cores e layout responsivo.
-- `assets/app.js`: busca, filtros, registro e exportação de atividades.
-- `assets/icon.svg`: marca gráfica provisória, criada para o protótipo (não é o logotipo oficial do IFMS).
-
-Exemplo de novo aviso (inserir na lista `avisos`, com vírgulas entre objetos):
-```js
-{tipo:'EVENTO',titulo:'Nome do evento',descricao:'Informações confirmadas',prazo:'2027-03-20',url:'https://endereco-real-do-evento',rotulo:'Consultar programação'}
-```
-
-## Revisão institucional antes da divulgação
-
-- A meta de 160 horas vem do PPC de 2025, seção 5.5, páginas impressas 120–121 de 166, consultado na biblioteca do projeto. Confirmar a matriz aplicável a cada turma, o PPC oficialmente vigente e o RODP atualizado. A meta também aparece no HTML; caso mude, altere `PORTAL.metaHoras` e as menções fixas no HTML. O controle não simula fatores de conversão nem limites por categoria. Somente horas já validadas entram no progresso; o estudante declara essa condição manualmente.
-- Confirmar links, procedimentos de envio de comprovantes, prazos e contato oficial da coordenação. Não inventamos e-mail ou horário de atendimento. A página oficial do curso serve de referência.
-- Verificar marca/identidade visual, titularidade do repositório e autorização de divulgação; o portal é complementar e não substitui SUAP, Moodle nem o site institucional.
-- As ofertas 2026.2 foram registradas a partir da notícia de 03/09/2026 (inscrições até 05/12, conclusão até 17/12): https://www.ifms.edu.br/noticias/2026/confira-lista-de-cursos-livres-disponiveis/ . Cada cartão tem fonte e link para catálogo. As condições de certificado gratuito dependem da conclusão e aprovação conforme a instituição. Plataformas sem comprovação confirmada são marcadas para consulta; material autônomo não implica certificação.
-- Revisar mensalmente links e oportunidades. Nenhum evento, vaga ou bolsa sem fonte foi incluído. O mural começa com aviso real e links permanentes de consulta.
-- O navegador armazena registros no LocalStorage; não há login ou sincronização. Exporte o CSV para backup. Evite dados sensíveis e nomes de terceiros; o CSV é local e não envia informações para a instituição. Limpar os dados do navegador apaga os registros.
+## Testes
+11 casos de cálculo em Node.js, incluindo limites simultâneos e acúmulo entre semestres; sete páginas renderizadas no Chromium; cadastro de cinco atividades e exportação .docx testados. Documento aberto e renderizado pelo LibreOffice. O ambiente bloqueou navegação local/HTTP, então os recursos foram inseridos diretamente no navegador de testes e o armazenamento foi simulado. Persistência real e restauração de backup devem ser confirmadas na hospedagem. Revisar enquadramento e fluxo de entrega com o docente responsável antes do lançamento.
